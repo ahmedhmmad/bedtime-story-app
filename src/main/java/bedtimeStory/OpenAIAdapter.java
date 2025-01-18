@@ -1,6 +1,8 @@
 package bedtimeStory;
 
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 public class OpenAIAdapter implements StoryService{
     private OpenAIStoryGenerator storyGenerator;
@@ -15,7 +17,7 @@ public class OpenAIAdapter implements StoryService{
     }
 
     @Override
-    public String convertToAudio(String text) {
-        return "";
+    public String generateStoryGemini(String text) throws ExecutionException, InterruptedException, TimeoutException {
+       return storyGenerator.generateStoryGemini(text);
     }
 }
